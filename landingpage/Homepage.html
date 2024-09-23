@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel And Explore</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body> 
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Travel And Explore</h1>
+            </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about-us">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#">Destinations</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./Destinations/maldives.html" target="_blank">Maldives</a></li>
+                        <li><a href="./Destinations/japan.html" target="_blank">Japan</a></li>
+                        <li><a href="./Destinations/china.html" target="_blank">China</a></li>
+                        <li><a href="./Destinations/usa.html" target="_blank">USA</a></li>
+                        <li><a href="./Destinations/france.html" target="_blank">France</a></li>
+                        <li><a href="./Destinations/italy.html" target="_blank">Italy</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Packages</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./Packages/packages-1lakh.html">>1 Lakh</a></li>
+                        <li><a href="./Packages/packages-1to2lakh.html">1 to 2 Lakh</a></li>
+                        <li><a href="./Packages/packages-2andabove.html">2 and Above</a></li>
+                    </ul>
+                </li>
+                <li><a href="#footer">Contact</a></li> 
+            </ul> 
+        </nav>
+    </header>
+    
+    <section id="header" class="section">
+        <div class="overlay">
+            <h1>Make your journey lovable with us</h1>
+            <p>Your gateway to unforgettable travel experiences. Explore the world with what you love, the beauty of nature.</p>
+            
+            <section class="search-bar">
+                <h2>Find Your Next Adventure</h2>
+                <form id="search-form">
+                    <select name="location" id="location" required>
+                        <option value="" disabled selected>Select Location</option>
+                        <option value="new-york">New York City, USA</option>
+                        <option value="kyoto">Kyoto, Japan</option>
+                        <option value="rome">Rome, Italy</option>
+                        <option value="paris">Paris, France</option>
+                    </select>
+                    <input type="date" name="date" required>
+                    <button type="submit">Explore Now</button>
+                </form>
+            </section>
+        </div>
+    </section>
+    
+    <!-- About Us Section -->
+    <section id="about-us" class="about-section">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <p>At <strong>Travel and Explore</strong>, we are passionate about crafting extraordinary travel experiences for our customers. With years of expertise, we offer tailored journeys to the most breathtaking destinations around the globe. Whether you're seeking adventure, relaxation, or cultural immersion, we ensure that every trip is memorable and hassle-free.</p>
+            <p>Our dedicated team of travel experts works around the clock to provide you with personalized services, from planning your itinerary to ensuring a seamless journey. Discover the world with us, where your satisfaction is our priority.</p>
+            <p>Our mission is to make travel accessible, enjoyable, and unforgettable for everyone, from solo adventurers to family vacations. Let us take you on an adventure that will stay with you forever.</p>
+        </div>
+    </section>
+    
+    <section class="explore-section">
+        <h2>Explore Our Trip Categories</h2>
+        <div class="explore-images">
+            <div class="explore-card" onclick="window.location.href='./explore/mountain.html';">
+                <img src="Images/mountains.jpg" alt="Mountains">
+                <h3>Mountains</h3>
+            </div>
+            <div class="explore-card" onclick="window.location.href='./explore/road-trips.html';">
+                <img src="Images/road-trips.jpg" alt="Road Trips">
+                <h3>Road Trips</h3>
+            </div>
+            <div class="explore-card" onclick="window.location.href='./explore/sea-lake.html';">
+                <img src="Images/sea or lake trips.jpg" alt="Sea and Lake Views">
+                <h3>Sea and Lake Views</h3>
+            </div>
+            <div class="explore-card" onclick="window.location.href='./explore/devotional.html';">
+                <img src="Images/devotional.jpg" alt="Devotional Trips">
+                <h3>Devotional</h3>
+            </div>
+            <div class="explore-card" onclick="window.location.href='./explore/adventurous.html';">
+                <img src="Images/adventure.jpg" alt="Adventurous Trips">
+                <h3>Adventurous</h3>
+            </div>
+        </div>
+    </section>
+    
+    <section class="reviews-section">
+        <h2>Why Choose Us?</h2>
+        <div class="reviews">
+            <div class="review-card">
+                <img src="Images/review1.jpg" alt="Reviewer 1">
+                <h3>John Doe</h3>
+                <p class="rating">★★★★★</p>
+                <p>"The best travel experience I’ve ever had! Everything was well-organized and exceeded my expectations."</p>
+            </div>
+            <div class="review-card">
+                <img src="Images/review2.jpg" alt="Reviewer 2">
+                <h3>Jane Smith</h3>
+                <p class="rating">★★★★☆</p>
+                <p>"Amazing destinations and great service. Minor issues with scheduling, but overall a fantastic trip."</p>
+            </div>
+            <div class="review-card">
+                <img src="Images/review3.jpg" alt="Reviewer 3">
+                <h3>Emily Johnson</h3>
+                <p class="rating">★★★★★</p>
+                <p>"I loved every moment of my vacation! The attention to detail was incredible, and I felt truly taken care of."</p>
+            </div>
+        </div>
+    </section>
+ 
+    <section id="footer" class="footer-info">
+        <div class="container">
+            <div class="footer-row">
+                <div class="travel-agency">
+                    <img src="Images/icons8-travel-agency-64.png" alt="Travel Agency Logo" class="logo">
+                    <h3>Travel Agency</h3>
+                    <p>Your gateway to unforgettable journeys and experiences.</p>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <img src="Images/phone-icon.png" alt="Phone Icon">
+                        <p>(+123) 456-7890</p>
+                    </div>
+                    <div class="contact-item">
+                        <img src="Images/icons8-email-48.png" alt="Email Icon">
+                        <p>info@travelagency.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <img src="Images/icons8-location-24.png" alt="Address Icon">
+                        <p>123 Travel Street, City, Country</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-row quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#tours">Tours</a></li>
+                </ul>
+            </div>
+            <div class="footer-row follow-us">
+                <h4>Follow Us</h4>
+                <a href="#"><img src="Images/icons8-telegram-48.png" alt="Telegram"></a>
+                <a href="#"><img src="Images/icons8-twitter-48.png" alt="Twitter"></a>
+                <a href="#"><img src="Images/icons8-instagram-logo-48.png" alt="Instagram"></a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('search-form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+    
+            const locationSelect = document.getElementById('location');
+            const selectedLocation = locationSelect.value;
+    
+            const locationMap = {
+                "new-york": "./Destinations/usa.html",
+                "kyoto": "./Destinations/japan.html",
+                "rome": "./Destinations/italy.html",
+                "paris": "./Destinations/france.html"
+            };
+    
+            // Redirect to the corresponding page
+            if (selectedLocation in locationMap) {
+                window.location.href = locationMap[selectedLocation];
+            }
+        });
+    </script>
+</body>
+</html>

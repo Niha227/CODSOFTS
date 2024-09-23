@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sea and Lake Trips</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        /* Trip Info Section */
+        .trip-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .place {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            flex: 1 1 30%;
+        }
+
+        .place:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .place img {
+            width: 100%;
+            height: auto;
+            border-bottom: 4px solid #4CAF50;
+        }
+
+        .place h3 {
+            padding: 15px;
+            text-align: center;
+            background: #f4f4f4;
+            margin: 0;
+            font-size: 1.2em;
+            border-top: 2px solid #4CAF50;
+        }
+
+        /* Package Selection */
+        .book-now {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .book-now select, .book-now button {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+        }
+
+        .package-details {
+            margin-top: 10px;
+            display: none; /* Initially hidden */
+            background: #e9f5e9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Explore Sea and Lake Trips</h1>
+    </header>
+
+    <!-- Section for Trip Information -->
+    <section>
+        <h2>Popular Sea and Lake Destinations</h2>
+        <div class="trip-info">
+            <div class="place">
+                <img src="/Images/maldives.jpg" alt="Maldives">
+                <h3>Maldives</h3>
+                <p>Relax on the white sandy beaches and crystal-clear waters of the Maldives.</p>
+                <div class="book-now">
+                    <select id="maldives-packages" onchange="showPackageDetails('maldives')">
+                        <option value="">Select Package</option>
+                        <option value="basic">Basic Package</option>
+                        <option value="luxury">Luxury Package</option>
+                        <option value="adventure">Adventure Package</option>
+                    </select>
+                    <button onclick="confirmBooking('Maldives')">Book Now</button>
+                    <div id="maldives-details" class="package-details"></div>
+                </div>
+            </div>
+
+            <div class="place">
+                <img src="/Images/Lake Como, Italy.jpg" alt="Lake Como, Italy">
+                <h3>Lake Como, Italy</h3>
+                <p>Stay in luxury villas by the beautiful Lake Como with stunning views and boat tours.</p>
+                <div class="book-now">
+                    <select id="lake-como-packages" onchange="showPackageDetails('lake-como')">
+                        <option value="">Select Package</option>
+                        <option value="basic">Basic Package</option>
+                        <option value="luxury">Luxury Package</option>
+                        <option value="adventure">Adventure Package</option>
+                    </select>
+                    <button onclick="confirmBooking('Lake Como')">Book Now</button>
+                    <div id="lake-como-details" class="package-details"></div>
+                </div>
+            </div>
+
+            <div class="place">
+                <img src="/Images/Santorini, Greece.jpg" alt="Santorini, Greece">
+                <h3>Santorini, Greece</h3>
+                <p>Explore the picturesque island of Santorini with its famous white buildings and blue domes.</p>
+                <div class="book-now">
+                    <select id="santorini-packages" onchange="showPackageDetails('santorini')">
+                        <option value="">Select Package</option>
+                        <option value="basic">Basic Package</option>
+                        <option value="luxury">Luxury Package</option>
+                        <option value="adventure">Adventure Package</option>
+                    </select>
+                    <button onclick="confirmBooking('Santorini')">Book Now</button>
+                    <div id="santorini-details" class="package-details"></div>
+                </div>
+            </div>
+
+            <div class="place">
+                <img src="/Images/Lake Tahoe, USA.jpg" alt="Lake Tahoe, USA">
+                <h3>Lake Tahoe, USA</h3>
+                <p>Enjoy water sports and hiking around the clear waters of Lake Tahoe.</p>
+                <div class="book-now">
+                    <select id="lake-tahoe-packages" onchange="showPackageDetails('lake-tahoe')">
+                        <option value="">Select Package</option>
+                        <option value="basic">Basic Package</option>
+                        <option value="luxury">Luxury Package</option>
+                        <option value="adventure">Adventure Package</option>
+                    </select>
+                    <button onclick="confirmBooking('Lake Tahoe')">Book Now</button>
+                    <div id="lake-tahoe-details" class="package-details"></div>
+                </div>
+            </div>
+
+            <div class="place">
+                <img src="/Images/Great Barrier Reef, Australia.jpg" alt="Great Barrier Reef, Australia">
+                <h3>Great Barrier Reef, Australia</h3>
+                <p>Dive and snorkel through the world’s largest coral reef system.</p>
+                <div class="book-now">
+                    <select id="great-barrier-reef-packages" onchange="showPackageDetails('great-barrier-reef')">
+                        <option value="">Select Package</option>
+                        <option value="basic">Basic Package</option>
+                        <option value="luxury">Luxury Package</option>
+                        <option value="adventure">Adventure Package</option>
+                    </select>
+                    <button onclick="confirmBooking('Great Barrier Reef')">Book Now</button>
+                    <div id="great-barrier-reef-details" class="package-details"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <a href="index.html">Back to Home</a>
+    </footer>
+
+    <script>
+        const packageDetails = {
+            maldives: {
+                basic: {
+                    duration: "3 Days",
+                    places: ["Snorkeling Tours", "Beach Stay", "Local Cuisine"],
+                    cost: "$600 per person"
+                },
+                luxury: {
+                    duration: "5 Days",
+                    places: ["Overwater Villas", "Private Snorkeling", "Spa Experiences"],
+                    cost: "$2000 per person"
+                },
+                adventure: {
+                    duration: "7 Days",
+                    places: ["Scuba Diving", "Underwater Photography"],
+                    cost: "$3500 per person"
+                }
+            },
+            "lake-como": {
+                basic: {
+                    duration: "3 Days",
+                    places: ["Scenic Boat Tours", "Guided Hikes", "Visit Bellagio"],
+                    cost: "$550 per person"
+                },
+                luxury: {
+                    duration: "5 Days",
+                    places: ["Luxury Villa Stay", "Private Tours", "Gourmet Dining"],
+                    cost: "$1800 per person"
+                },
+                adventure: {
+                    duration: "7 Days",
+                    places: ["Hiking", "Kayaking", "Cycling around the Lake"],
+                    cost: "$3200 per person"
+                }
+            },
+            santorini: {
+                basic: {
+                    duration: "3 Days",
+                    places: ["Beach Relaxation", "Sunset Viewing", "Local Food Tasting"],
+                    cost: "$700 per person"
+                },
+                luxury: {
+                    duration: "5 Days",
+                    places: ["Luxury Hotel Stay", "Private Yacht Tours", "Wine Tasting"],
+                    cost: "$2500 per person"
+                },
+                adventure: {
+                    duration: "7 Days",
+                    places: ["Hiking to Oia", "Water Sports", "Cultural Tours"],
+                    cost: "$4000 per person"
+                }
+            },
+            "lake-tahoe": {
+                basic: {
+                    duration: "3 Days",
+                    places: ["Boating", "Beach Activities", "Nature Walks"],
+                    cost: "$600 per person"
+                },
+                luxury: {
+                    duration: "5 Days",
+                    places: ["Lakefront Lodge", "Spa Treatments", "Gourmet Dinners"],
+                    cost: "$2200 per person"
+                },
+                adventure: {
+                    duration: "7 Days",
+                    places: ["Skiing", "Mountain Biking", "Scuba Diving"],
+                    cost: "$3700 per person"
+                }
+            },
+            "great-barrier-reef": {
+                basic: {
+                    duration: "3 Days",
+                    places: ["Snorkeling", "Glass Bottom Boat Tours", "Coral Viewing"],
+                    cost: "$800 per person"
+                },
+                luxury: {
+                    duration: "5 Days",
+                    places: ["Luxury Resort Stay", "Private Diving Tours", "Helicopter Rides"],
+                    cost: "$3000 per person"
+                },
+                adventure: {
+                    duration: "7 Days",
+                    places: ["Liveaboard Diving", "Island Hopping", "Fishing Tours"],
+                    cost: "$5000 per person"
+                }
+            }
+        };
+
+        function showPackageDetails(destination) {
+            const selectElement = document.getElementById(destination + '-packages');
+            const selectedPackage = selectElement.value;
+            const detailsDiv = document.getElementById(destination + '-details');
+
+            if (selectedPackage) {
+                const details = packageDetails[destination][selectedPackage];
+                detailsDiv.innerHTML = `<strong>Duration:</strong> ${details.duration} <br>
+                                        <strong>Places to Visit:</strong> ${details.places.join(', ')} <br>
+                                        <strong>Cost:</strong> ${details.cost}`;
+                detailsDiv.style.display = 'block';
+            } else {
+                detailsDiv.style.display = 'none';
+            }
+        }
+
+        function confirmBooking(destination) {
+            alert(`You have booked a trip to ${destination}!`);
+        }
+    </script>
+</body>
+</html>

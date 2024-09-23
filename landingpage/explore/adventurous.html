@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Trips</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        /* Trip Info Section */
+        .trip-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .place {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            flex: 1 1 30%;
+        }
+
+        .place:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .place img {
+            width: 100%;
+            height: auto;
+            border-bottom: 4px solid #4CAF50;
+        }
+
+        .place h3 {
+            padding: 15px;
+            text-align: center;
+            background: #f4f4f4;
+            margin: 0;
+            font-size: 1.2em;
+            border-top: 2px solid #4CAF50;
+        }
+
+        /* Package Selection */
+        .book-now {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .book-now select, .book-now button {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+        }
+
+        .package-details {
+            margin-top: 10px;
+            display: none; /* Initially hidden */
+            background: #e9f5e9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Explore Adventure Trips</h1>
+    </header>
+
+    <!-- Section for Trip Information -->
+    <section>
+        <h2>Popular Adventure Destinations</h2>
+        <div class="trip-info">
+            <div class="place">
+                <img src="/Images/everst truk.jpg" alt="Everest Base Camp, Nepal">
+                <h3>Everest Base Camp, Nepal</h3>
+                <p>Experience the thrill of trekking to the base camp of the world's highest peak.</p>
+                <div class="book-now">
+                    <select id="everest-packages" onchange="showPackageDetails('everest')">
+                        <option value="">Select Package</option>
+                        <option value="basic">Basic Package</option>
+                        <option value="luxury">Luxury Package</option>
+                        <option value="adventure">Adventure Package</option>
+                    </select>
+                    <button onclick="confirmBooking('Everest Base Camp')">Book Now</button>
+                    <div id="everest-details" class="package-details"></div>
+                </div>
+            </div>
+            <div class="place">
+                <img src="/Images/Safari, Kenya.jpg" alt="Safari, Kenya">
+                <h3>Safari, Kenya</h3>
+                <p>Go on an unforgettable safari adventure in the heart of the African savanna.</p>
+                <div class="book-now">
+                    <select id="safari-packages" onchange="showPackageDetails('safari')">
+                        <option value="">Select Package</option>
+                        <option value="basic">Basic Package</option>
+                        <option value="luxury">Luxury Package</option>
+                        <option value="adventure">Adventure Package</option>
+                    </select>
+                    <button onclick="confirmBooking('Safari')">Book Now</button>
+                    <div id="safari-details" class="package-details"></div>
+                </div>
+            </div>
+            <div class="place">
+                <img src="/Images/Great Barrier Reef, Australia.jpg" alt="Great Barrier Reef, Australia">
+                <h3>Great Barrier Reef, Australia</h3>
+                <p>Dive into the world's largest coral reef system and explore its underwater beauty.</p>
+                <div class="book-now">
+                    <select id="reef-packages" onchange="showPackageDetails('reef')">
+                        <option value="">Select Package</option>
+                        <option value="basic">Basic Package</option>
+                        <option value="luxury">Luxury Package</option>
+                        <option value="adventure">Adventure Package</option>
+                    </select>
+                    <button onclick="confirmBooking('Great Barrier Reef')">Book Now</button>
+                    <div id="reef-details" class="package-details"></div>
+                </div>
+            </div>
+            <div class="place">
+                <img src="/Images/Amazon Rainforest, Brazil.jpg" alt="Amazon Rainforest, Brazil">
+                <h3>Amazon Rainforest, Brazil</h3>
+                <p>Embark on an adventure through the lush greenery of the Amazon.</p>
+                <div class="book-now">
+                    <select id="amazon-packages" onchange="showPackageDetails('amazon')">
+                        <option value="">Select Package</option>
+                        <option value="basic">Basic Package</option>
+                        <option value="luxury">Luxury Package</option>
+                        <option value="adventure">Adventure Package</option>
+                    </select>
+                    <button onclick="confirmBooking('Amazon Rainforest')">Book Now</button>
+                    <div id="amazon-details" class="package-details"></div>
+                </div>
+            </div>
+            <div class="place">
+                <img src="/Images/Costa Rica.jpg" alt="Costa Rica">
+                <h3>Costa Rica</h3>
+                <p>Experience zip-lining through the tropical rainforests and explore stunning wildlife.</p>
+                <div class="book-now">
+                    <select id="costa-packages" onchange="showPackageDetails('costa')">
+                        <option value="">Select Package</option>
+                        <option value="basic">Basic Package</option>
+                        <option value="luxury">Luxury Package</option>
+                        <option value="adventure">Adventure Package</option>
+                    </select>
+                    <button onclick="confirmBooking('Costa Rica')">Book Now</button>
+                    <div id="costa-details" class="package-details"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <a href="index.html">Back to Home</a>
+    </footer>
+
+    <script>
+        const packageDetails = {
+            "everest": {
+                basic: {
+                    duration: "5 Days",
+                    places: ["Base Camp Trek", "Serene Views", "Guided Camping"],
+                    cost: "$1200 per person"
+                },
+                luxury: {
+                    duration: "7 Days",
+                    places: ["Luxury Lodging", "Private Guides", "Gourmet Meals"],
+                    cost: "$4000 per person"
+                },
+                adventure: {
+                    duration: "10 Days",
+                    places: ["Climbing Training", "Survival Skills"],
+                    cost: "$5000 per person"
+                }
+            },
+            "safari": {
+                basic: {
+                    duration: "5 Days",
+                    places: ["Group Safari", "Budget Accommodations"],
+                    cost: "$1200 per person"
+                },
+                luxury: {
+                    duration: "7 Days",
+                    places: ["Luxury Camps", "Personalized Safari"],
+                    cost: "$4000 per person"
+                },
+                adventure: {
+                    duration: "10 Days",
+                    places: ["Extended Park Exploration", "Adventure Camping"],
+                    cost: "$5000 per person"
+                }
+            },
+            "reef": {
+                basic: {
+                    duration: "5 Days",
+                    places: ["Diving Course", "Group Dives"],
+                    cost: "$1200 per person"
+                },
+                luxury: {
+                    duration: "7 Days",
+                    places: ["Private Yacht", "Exclusive Dive Spots"],
+                    cost: "$4000 per person"
+                },
+                adventure: {
+                    duration: "10 Days",
+                    places: ["Multiple Dive Sites", "Liveaboard Diving"],
+                    cost: "$5000 per person"
+                }
+            },
+            "amazon": {
+                basic: {
+                    duration: "5 Days",
+                    places: ["Rainforest Hike", "Basic Camps"],
+                    cost: "$1200 per person"
+                },
+                luxury: {
+                    duration: "7 Days",
+                    places: ["Private Lodges", "Guided Tours"],
+                    cost: "$4000 per person"
+                },
+                adventure: {
+                    duration: "10 Days",
+                    places: ["Survival Expeditions", "River Adventures"],
+                    cost: "$5000 per person"
+                }
+            },
+            "costa": {
+                basic: {
+                    duration: "5 Days",
+                    places: ["Zip-lining", "Budget Stay"],
+                    cost: "$1200 per person"
+                },
+                luxury: {
+                    duration: "7 Days",
+                    places: ["Private Rainforest Lodges", "Guided Adventure"],
+                    cost: "$4000 per person"
+                },
+                adventure: {
+                    duration: "10 Days",
+                    places: ["Multiple Rainforest Activities", "Adventure Parks"],
+                    cost: "$5000 per person"
+                }
+            }
+        };
+
+        function showPackageDetails(trip) {
+            const selectElement = document.getElementById(`${trip}-packages`);
+            const selectedPackage = selectElement.value;
+            const detailsElement = document.getElementById(`${trip}-details`);
+            if (selectedPackage) {
+                const details = packageDetails[trip][selectedPackage];
+                detailsElement.innerHTML = `
+                    <strong>Duration:</strong> ${details.duration}<br>
+                    <strong>Includes:</strong> ${details.places.join(', ')}<br>
+                    <strong>Cost:</strong> ${details.cost}
+                `;
+                detailsElement.style.display = "block";
+            } else {
+                detailsElement.style.display = "none";
+            }
+        }
+
+        function confirmBooking(trip) {
+            alert(`Booking confirmed for ${trip}. We will send you the booking details.`);
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road Trips</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        /* Trip Info Section */
+        .trip-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .place {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            flex: 1 1 30%;
+        }
+
+        .place:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .place img {
+            width: 100%;
+            height: auto;
+            border-bottom: 4px solid #4CAF50;
+        }
+
+        .place h3 {
+            padding: 15px;
+            text-align: center;
+            background: #f4f4f4;
+            margin: 0;
+            font-size: 1.2em;
+            border-top: 2px solid #4CAF50;
+        }
+
+        /* Package Selection */
+        .book-now {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .book-now select, .book-now button {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+        }
+
+        .package-details {
+            margin-top: 10px;
+            display: none; /* Initially hidden */
+            background: #e9f5e9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Explore Road Trips</h1>
+    </header>
+
+    <!-- Section for Trip Information -->
+    <section>
+        <h2>Popular Road Trip Destinations</h2>
+        <div class="trip-info">
+            <div class="place">
+                <img src="/Images/Pacific Coast Highway, USA.jpg" alt="Pacific Coast Highway, USA">
+                <h3>Pacific Coast Highway, USA</h3>
+                <p>Drive along the scenic coastline of California, exploring beaches, cliffs, and iconic landmarks.</p>
+                <div class="book-now">
+                    <select id="pacific-coast-packages" onchange="showPackageDetails('pacific-coast')">
+                        <option value="">Select Package</option>
+                        <option value="basic">Basic Package</option>
+                        <option value="luxury">Luxury Package</option>
+                        <option value="adventure">Adventure Package</option>
+                    </select>
+                    <button onclick="confirmBooking('Pacific Coast Highway')">Book Now</button>
+                    <div id="pacific-coast-details" class="package-details"></div>
+                </div>
+            </div>
+            <div class="place">
+                <img src="/Images/Great Ocean Road, Australia.jpg" alt="Great Ocean Road, Australia">
+                <h3>Great Ocean Road, Australia</h3>
+                <p>Witness the Twelve Apostles and other breathtaking views along Australia's southern coast.</p>
+                <div class="book-now">
+                    <select id="great-ocean-packages" onchange="showPackageDetails('great-ocean')">
+                        <option value="">Select Package</option>
+                        <option value="basic">Basic Package</option>
+                        <option value="luxury">Luxury Package</option>
+                        <option value="adventure">Adventure Package</option>
+                    </select>
+                    <button onclick="confirmBooking('Great Ocean Road')">Book Now</button>
+                    <div id="great-ocean-details" class="package-details"></div>
+                </div>
+            </div>
+            <div class="place">
+                <img src="/Images/Ring Road, Iceland.jpg" alt="Ring Road, Iceland">
+                <h3>Ring Road, Iceland</h3>
+                <p>Drive through volcanoes, glaciers, waterfalls, and hot springs on this iconic route.</p>
+                <div class="book-now">
+                    <select id="iceland-packages" onchange="showPackageDetails('iceland')">
+                        <option value="">Select Package</option>
+                        <option value="basic">Basic Package</option>
+                        <option value="luxury">Luxury Package</option>
+                        <option value="adventure">Adventure Package</option>
+                    </select>
+                    <button onclick="confirmBooking('Ring Road, Iceland')">Book Now</button>
+                    <div id="iceland-details" class="package-details"></div>
+                </div>
+            </div>
+            <div class="place">
+                <img src="/Images/Garden Route, South Africa.jpg" alt="Garden Route, South Africa">
+                <h3>Garden Route, South Africa</h3>
+                <p>A scenic drive through mountains, forests, and beaches along South Africa's coast.</p>
+                <div class="book-now">
+                    <select id="garden-route-packages" onchange="showPackageDetails('garden-route')">
+                        <option value="">Select Package</option>
+                        <option value="basic">Basic Package</option>
+                        <option value="luxury">Luxury Package</option>
+                        <option value="adventure">Adventure Package</option>
+                    </select>
+                    <button onclick="confirmBooking('Garden Route')">Book Now</button>
+                    <div id="garden-route-details" class="package-details"></div>
+                </div>
+            </div>
+            <div class="place">
+                <img src="/Images/South Island, New Zealand.jpg" alt="South Island, New Zealand">
+                <h3>South Island, New Zealand</h3>
+                <p>Explore the diverse landscapes of New Zealand’s South Island, from mountains to fjords.</p>
+                <div class="book-now">
+                    <select id="south-island-packages" onchange="showPackageDetails('south-island')">
+                        <option value="">Select Package</option>
+                        <option value="basic">Basic Package</option>
+                        <option value="luxury">Luxury Package</option>
+                        <option value="adventure">Adventure Package</option>
+                    </select>
+                    <button onclick="confirmBooking('South Island')">Book Now</button>
+                    <div id="south-island-details" class="package-details"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <a href="index.html">Back to Home</a>
+    </footer>
+
+    <script>
+        const packageDetails = {
+            "pacific-coast": {
+                basic: {
+                    duration: "5 Days",
+                    places: ["Beaches", "State Parks", "Cliffs"],
+                    cost: "$800 per person"
+                },
+                luxury: {
+                    duration: "7 Days",
+                    places: ["Luxury Hotels", "Guided Tours", "Fine Dining"],
+                    cost: "$3000 per person"
+                },
+                adventure: {
+                    duration: "10 Days",
+                    places: ["Camping", "Hiking", "Surfing"],
+                    cost: "$4500 per person"
+                }
+            },
+            "great-ocean": {
+                basic: {
+                    duration: "5 Days",
+                    places: ["Coastal Attractions", "Twelve Apostles"],
+                    cost: "$850 per person"
+                },
+                luxury: {
+                    duration: "7 Days",
+                    places: ["Luxury Stays", "Gourmet Dining"],
+                    cost: "$3200 per person"
+                },
+                adventure: {
+                    duration: "10 Days",
+                    places: ["Adventure Hikes", "Wildlife Tours"],
+                    cost: "$4700 per person"
+                }
+            },
+            iceland: {
+                basic: {
+                    duration: "5 Days",
+                    places: ["Volcanoes", "Waterfalls"],
+                    cost: "$900 per person"
+                },
+                luxury: {
+                    duration: "7 Days",
+                    places: ["Hot Springs", "Luxury Hotels"],
+                    cost: "$3500 per person"
+                },
+                adventure: {
+                    duration: "10 Days",
+                    places: ["Glacier Hiking", "Extreme Tours"],
+                    cost: "$5000 per person"
+                }
+            },
+            "garden-route": {
+                basic: {
+                    duration: "5 Days",
+                    places: ["National Parks", "Coastal Towns"],
+                    cost: "$700 per person"
+                },
+                luxury: {
+                    duration: "7 Days",
+                    places: ["Luxury Lodging", "Fine Dining"],
+                    cost: "$2800 per person"
+                },
+                adventure: {
+                    duration: "10 Days",
+                    places: ["Hiking Trails", "Water Sports"],
+                    cost: "$4200 per person"
+                }
+            },
+            "south-island": {
+                basic: {
+                    duration: "5 Days",
+                    places: ["Mountains", "Lakes"],
+                    cost: "$950 per person"
+                },
+                luxury: {
+                    duration: "7 Days",
+                    places: ["Luxury Resorts", "Private Tours"],
+                    cost: "$3600 per person"
+                },
+                adventure: {
+                    duration: "10 Days",
+                    places: ["Extreme Sports", "Nature Tours"],
+                    cost: "$5100 per person"
+                }
+            }
+        };
+
+        function showPackageDetails(trip) {
+            const select = document.getElementById(`${trip}-packages`);
+            const selectedPackage = select.value;
+            const detailsDiv = document.getElementById(`${trip}-details`);
+
+            if (selectedPackage) {
+                const details = packageDetails[trip][selectedPackage];
+                detailsDiv.innerHTML = `<strong>Duration:</strong> ${details.duration}<br>
+                                         <strong>Places:</strong> ${details.places.join(', ')}<br>
+                                         <strong>Cost:</strong> ${details.cost}`;
+                detailsDiv.style.display = 'block';
+            } else {
+                detailsDiv.innerHTML = '';
+                detailsDiv.style.display = 'none';
+            }
+        }
+
+        function confirmBooking(destination) {
+            alert(`Thank you for booking your trip to ${destination}!`);
+        }
+    </script>
+</body>
+</html>
